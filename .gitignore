@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+*.swp
+~$*
+
+# Local exports and generated lecture files
+dist/
+build/
+*.pdf
+*.ppt
+*.pptx
