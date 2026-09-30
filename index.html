@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="CalculusStory 高等数学B故事册：从问题、历史和应用理解高等数学。">
+    <title>CalculusStory｜高等数学B故事册</title>
+    <link rel="stylesheet" href="site.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="CalculusStory 首页">
+        <span class="brand-mark">C</span>
+        <span>CalculusStory</span>
+      </a>
+      <nav aria-label="主导航">
+        <a href="#chapters">章节</a>
+        <a href="#method">学习方法</a>
+        <a href="https://github.com/Spring-1211/CalculusStory">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">高等数学 B · 同济第八版配套</p>
+          <h1>高等数学B故事册</h1>
+          <p class="lead">数学不是一串从天上掉下来的公式。每个概念都曾经是一个问题的答案。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="concepts/function-mapping.html">从“函数为什么存在”开始</a>
+            <a class="button secondary" href="https://github.com/Spring-1211/CalculusStory">查看仓库</a>
+          </div>
+        </div>
+        <aside class="hero-note" aria-label="本册的阅读线索">
+          <p class="note-label">每一节都回答</p>
+          <ol>
+            <li><span>01</span> 当时遇到了什么问题？</li>
+            <li><span>02</span> 为什么要这样定义？</li>
+            <li><span>03</span> 现在能用它做什么？</li>
+          </ol>
+        </aside>
+      </section>
+
+      <section class="section" id="chapters">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">第一章 · 函数与极限</p>
+            <h2>先学会提出好问题</h2>
+          </div>
+          <label class="search-box">
+            <span class="sr-only">筛选概念</span>
+            <input id="concept-search" type="search" placeholder="搜索概念" autocomplete="off">
+          </label>
+        </div>
+        <div class="concept-grid" id="concept-grid">
+          <a class="concept-card" data-search="映射 函数 定义域 陪域 值域" href="concepts/function-mapping.html">
+            <div class="card-index">01.1</div>
+            <h3>映射与函数</h3>
+            <p>从“公式”走向“对应关系”：为什么每个输入必须有且只有一个输出？</p>
+            <span class="card-link">进入小节 <span aria-hidden="true">→</span></span>
+          </a>
+          <a class="concept-card" data-search="狄利克雷 取整 符号 不连续 非光滑" href="concepts/non-smooth-functions.html">
+            <div class="card-index">01.1a</div>
+            <h3>三个不太规整的函数</h3>
+            <p>狄利克雷函数、取整函数、符号函数：用反例把函数的边界看清楚。</p>
+            <span class="card-link">进入小节 <span aria-hidden="true">→</span></span>
+          </a>
+          <a class="concept-card" data-search="反函数 反三角 双曲正弦 双曲余弦 sinh cosh" href="concepts/inverse-hyperbolic.html">
+            <div class="card-index">01.1b</div>
+            <h3>反函数与双曲函数</h3>
+            <p>为什么要限制定义域？`arcsin`、`sinh`、`cosh` 和 `tanh` 各自在解决什么问题？</p>
+            <span class="card-link">进入小节 <span aria-hidden="true">→</span></span>
+          </a>
+          <div class="concept-card upcoming" data-search="数列 极限">
+            <div class="card-index">01.2</div>
+            <h3>数列的极限</h3>
+            <p>待补：当“无限继续”需要一个可以证明的终点。</p>
+            <span class="card-link muted">即将展开</span>
+          </div>
+        </div>
+        <p class="empty-state" id="empty-state" hidden>没有找到这个词。试试“函数”“双曲”或“极限”。</p>
+      </section>
+
+      <section class="method-band" id="method">
+        <div class="method-intro">
+          <p class="eyebrow">我们怎样读数学</p>
+          <h2>把公式放回它诞生的地方</h2>
+          <p>每一节都从一个自然问题起步，再逐步引出定义、反例和应用。你不需要先喜欢公式，先弄懂它为什么值得被发明。</p>
+        </div>
+        <div class="method-list">
+          <div><span>问题</span><p>先问“如果没有它，哪里会卡住？”</p></div>
+          <div><span>边界</span><p>用一个反例检查定义到底保护了什么。</p></div>
+          <div><span>迁移</span><p>把同一个思想带到物理、代码、AI 和现实模型。</p></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>CalculusStory · 高等数学B故事册</span>
+      <a href="https://github.com/Spring-1211/CalculusStory">Spring-1211/CalculusStory</a>
+    </footer>
+    <script src="site.js"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>映射与函数｜CalculusStory</title><link rel="stylesheet" href="../site.css"></head>
+  <body>
+    <header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark">C</span><span>CalculusStory</span></a><nav><a href="../index.html#chapters">章节</a><a href="https://github.com/Spring-1211/CalculusStory">GitHub</a></nav></header>
+    <main class="reading-page">
+      <article class="reading-column">
+        <p class="eyebrow">第一章 · 第一节 · 01.1</p><h1>映射与函数</h1>
+        <p class="reading-lead">函数不是一条公式，而是对每个允许输入做出唯一输出承诺的规则。</p>
+        <div class="question-strip"><strong>先问三个问题</strong><ol><li>没有公式，实验数据和算法规则还能是函数吗？</li><li>为什么同一个 <code>x²</code> 改变范围后性质会变？</li><li>“唯一输出”为什么比“能画曲线”更基本？</li></ol></div>
+        <h2>从公式到对应关系</h2><p>17 世纪的解析几何让曲线和代数表达式联系起来。19 世纪的傅里叶问题又迫使数学家处理分段规则和不能用一个熟悉公式写出的依赖关系。于是函数的核心从“表达式”转向“给每个输入唯一输出”。</p>
+        <h2>现代定义</h2><p>设 <code>A</code>、<code>B</code> 为集合。若每个 <code>x ∈ A</code> 都有唯一的 <code>y ∈ B</code> 与之对应，就得到映射 <code>f:A→B</code>。定义域决定允许什么输入，陪域说明输出放在哪个目标集合，值域则是实际出现的输出。</p>
+        <div class="example-grid"><div><span class="example-label">例子 01</span><h3><code>sin x</code> 的陪域</h3><p><code>sin:R→[-1,1]</code> 是满射；<code>sin:R→R</code> 仍是函数，却不是满射。公式没变，映射变了。</p></div><div><span class="example-label">例子 02</span><h3><code>x²</code> 的唯一性</h3><p>在整个实数上不是单射；限制到 <code>[0,+∞)</code> 后才有反函数 <code>√x</code>。</p></div></div>
+        <h2>把概念带到现实</h2><p>传感器标定把输入电压映到温度，程序把索引映到数组元素，几何变换把平面点映到新位置。AI 里的分类器也可以看成输入到标签或概率向量的映射，但“可逆”与否必须由结构和训练目标具体保证。</p>
+        <aside class="next-reading"><strong>继续追问</strong><a href="non-smooth-functions.html">三个不太规整的函数 →</a><a href="inverse-hyperbolic.html">反函数与双曲函数 →</a></aside>
+        <p class="source-note">完整讲义与参考资料：<a href="../上册/01%20函数与极限/01_1%20映射与函数.md">Markdown 文章</a>。</p>
+      </article>
+    </main>
+  </body>
+</html>
