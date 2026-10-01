@@ -1,0 +1,3 @@
+[submodule "external/openstax-calculus"]
+	path = external/openstax-calculus
+	url = https://github.com/jd-roberts/OpenStaxCalc.git

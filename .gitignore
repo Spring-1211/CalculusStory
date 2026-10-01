@@ -9,3 +9,6 @@ build/
 *.pdf
 *.ppt
 *.pptx
+
+# Lean build products and package cache
+formalization/.lake/
