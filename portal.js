@@ -14,21 +14,24 @@ const byId = (items, id) => items.find((item) => item.id === id);
 const pill = (text) => `<span class="data-pill">${esc(text)}</span>`;
 const linkTo = (label, path) => `<a class="inline-link" href="${path}">${esc(label)}</a>`;
 const list = (items, render = esc) => items?.length ? `<ul class="clean-list">${items.map((item) => `<li>${render(item)}</li>`).join('')}</ul>` : '<p class="muted">暂无记录。</p>';
+const copyButton = (text, label = '复制代码') => `<button class="button secondary copy-button" type="button" data-copy="${encodeURIComponent(text)}">${esc(label)}</button>`;
 
 function shell(title, eyebrow, body) {
   document.title = `${title}｜CalculusStory`;
-  document.querySelector('#portal-root').innerHTML = `<header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">C</span><span>CalculusStory</span></a><nav><a href="graph.html">知识图谱</a><a href="people.html">数学家</a><a href="exercises.html">习题</a><a href="formalization.html">Lean4</a><a href="https://github.com/Spring-1211/CalculusStory">GitHub</a></nav></header><main class="portal-page"><div class="portal-column"><p class="eyebrow">${esc(eyebrow)}</p><h1>${esc(title)}</h1>${body}</div></main>`;
+  document.querySelector('#portal-root').innerHTML = `<header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">C</span><span>CalculusStory</span></a><nav><a href="graph.html">知识图谱</a><a href="people.html">数学家</a><a href="exercises.html">习题</a><a href="timeline.html">时间线</a><a href="formalization.html">Lean4</a><a href="ai.html">AI 辅助</a><a href="https://github.com/Spring-1211/CalculusStory">GitHub</a></nav></header><main class="portal-page"><div class="portal-column"><p class="eyebrow">${esc(eyebrow)}</p><h1>${esc(title)}</h1>${body}</div></main>`;
 }
 
 function renderKnowledge(data) {
   const id = new URLSearchParams(location.search).get('id') || 'mapping-function';
   const node = byId(data.knowledge.nodes, id) || data.knowledge.nodes[0];
-  const people = node.people.map((personId) => byId(data.people, personId)).filter(Boolean);
-  const exercises = node.exercises.map((exerciseId) => byId(data.exercises, exerciseId)).filter(Boolean);
+  const people = (node.people || []).map((personId) => byId(data.people, personId)).filter(Boolean);
+  const exercises = (node.exercises || []).map((exerciseId) => byId(data.exercises, exerciseId)).filter(Boolean);
   const formal = byId(data.formalization, node.formalization);
-  const incoming = data.knowledge.links.filter((link) => link.target === node.id);
-  const outgoing = data.knowledge.links.filter((link) => link.source === node.id);
-  shell(node.title, `${node.chapter} · ${node.type}`, `<p class="reading-lead">${esc(node.summary)}</p><div class="question-strip"><strong>先问</strong><p>${esc(node.question)}</p></div><div class="portal-grid"><section><h2>定义与重点</h2><p>${esc(node.definition)}</p><h3>本节抓手</h3>${list(node.focus, esc)}<h3>应用场景</h3>${list(node.applications, esc)}</section><section><h2>交叉引用</h2><h3>前置依赖</h3>${list(incoming, (link) => `${pill(link.relation)} ${linkTo(byId(data.knowledge.nodes, link.source)?.title || link.source, `knowledge.html?id=${link.source}`)}`)}<h3>后继延伸与同主题</h3>${list(outgoing, (link) => `${pill(link.relation)} ${linkTo(byId(data.knowledge.nodes, link.target)?.title || link.target, `knowledge.html?id=${link.target}`)}`)}<h3>关联数学家</h3>${list(people, (person) => linkTo(person.name, `people.html?id=${person.id}`))}<h3>配套习题</h3>${list(exercises, (exercise) => linkTo(exercise.title, `exercises.html?id=${exercise.id}`))}</section></div><section class="formal-panel"><div class="panel-heading"><div><p class="eyebrow">形式化验证</p><h2>${esc(formal?.title || '尚未映射')}</h2></div><span class="status-tag">${esc(formal?.status || '待补')}</span></div>${formal ? `<p><strong>教材陈述：</strong>${esc(formal.natural)}</p><pre><code>${esc(formal.code)}</code></pre><p class="muted">${esc(formal.notes)}</p><a class="button secondary" href="formalization.html?id=${formal.id}">查看完整映射</a>` : '<p class="muted">该知识点暂未建立 Lean4 映射。</p>'}</section>`);
+  const related = data.knowledge.links.filter((link) => link.relation === '同主题关联' && (link.source === node.id || link.target === node.id));
+  const incoming = data.knowledge.links.filter((link) => link.relation !== '同主题关联' && link.target === node.id);
+  const outgoing = data.knowledge.links.filter((link) => link.relation !== '同主题关联' && link.source === node.id);
+  const relatedNode = (link) => link.source === node.id ? link.target : link.source;
+  shell(node.title, `${node.chapter} · ${node.type}`, `<p class="reading-lead">${esc(node.summary)}</p><div class="question-strip"><strong>先问</strong><p>${esc(node.question)}</p></div><div class="portal-grid"><section><h2>定义与重点</h2><p>${esc(node.definition)}</p><h3>本节抓手</h3>${list(node.focus, esc)}<h3>应用场景</h3>${list(node.applications, esc)}</section><section><h2>交叉引用</h2><h3>前置依赖</h3>${list(incoming, (link) => `${pill('前置')} ${linkTo(byId(data.knowledge.nodes, link.source)?.title || link.source, `knowledge.html?id=${link.source}`)}`)}<h3>后继延伸</h3>${list(outgoing, (link) => `${pill('后继')} ${linkTo(byId(data.knowledge.nodes, link.target)?.title || link.target, `knowledge.html?id=${link.target}`)}`)}<h3>同主题关联</h3>${list(related, (link) => { const other = relatedNode(link); return `${pill('关联')} ${linkTo(byId(data.knowledge.nodes, other)?.title || other, `knowledge.html?id=${other}`)}`; })}<h3>关联数学家</h3>${list(people, (person) => linkTo(person.name, `people.html?id=${person.id}`))}<h3>配套习题</h3>${list(exercises, (exercise) => linkTo(exercise.title, `exercises.html?id=${exercise.id}`))}</section></div><div class="action-row"><a class="button secondary" href="ai.html?id=${node.id}">用 AI 提示词继续追问</a></div><section class="formal-panel"><div class="panel-heading"><div><p class="eyebrow">形式化验证</p><h2>${esc(formal?.title || '尚未映射')}</h2></div><span class="status-tag">${esc(formal?.status || '待补')}</span></div>${formal ? `<p><strong>教材陈述：</strong>${esc(formal.natural)}</p><pre><code>${esc(formal.code)}</code></pre><p class="muted">${esc(formal.notes)}</p><div class="action-row">${copyButton(formal.code, '复制 Lean 代码')}<a class="button secondary" href="formalization.html?id=${formal.id}">查看完整映射</a></div>` : '<p class="muted">该知识点暂未建立 Lean4 映射。</p>'}</section>`);
 }
 
 function renderPeople(data) {
@@ -59,7 +62,7 @@ function renderFormalization(data) {
   if (id) {
     const item = byId(data.formalization, id) || data.formalization[0];
     const node = byId(data.knowledge.nodes, item.knowledge);
-    shell(item.title, `Lean4 形式化 · ${item.status}`, `<div class="question-strip"><strong>教材陈述</strong><p>${esc(item.natural)}</p></div><h2>代码</h2><pre><code>${esc(item.code)}</code></pre><p>${esc(item.notes)}</p><h2>关联</h2><p>${node ? linkTo(node.title, `knowledge.html?id=${node.id}`) : ''}</p><p class="source-note">Lean 文件：<code>${esc(item.leanFile)}</code> · <a href="https://live.lean-lang.org/">打开 Lean 4 Web</a></p>`);
+    shell(item.title, `Lean4 形式化 · ${item.status}`, `<div class="question-strip"><strong>教材陈述</strong><p>${esc(item.natural)}</p></div><h2>代码</h2><pre><code>${esc(item.code)}</code></pre><div class="action-row">${copyButton(item.code, '复制 Lean 代码')}<a class="button secondary" href="https://live.lean-lang.org/">打开 Lean 4 Web</a></div><p>${esc(item.notes)}</p><h2>关联</h2><p>${node ? linkTo(node.title, `knowledge.html?id=${node.id}`) : ''}</p><p class="source-note">Lean 文件：<code>${esc(item.leanFile)}</code></p>`);
     return;
   }
   shell('Lean4 形式化代码映射', '自然语言定理 ↔ 可检查代码', `<p class="reading-lead">这里不追求把整本高数瞬间研究级形式化，而是诚实标出：什么已经验证，什么是 mathlib 现成定理，什么是教学定义，什么仍待补证明。</p><div class="exercise-table">${data.formalization.map((item) => `<a href="formalization.html?id=${item.id}"><span>${esc(item.status)}</span><strong>${esc(item.title)}</strong><small>${esc(item.natural)}</small></a>`).join('')}</div>`);
@@ -72,3 +75,31 @@ loadData().then((data) => {
   if (page === 'exercises') renderExercises(data);
   if (page === 'formalization') renderFormalization(data);
 }).catch((error) => { document.querySelector('#portal-root').innerHTML = `<p class="error-box">${esc(error.message)}</p>`; });
+
+async function copyText(text) {
+  if (navigator.clipboard?.writeText) {
+    try { await navigator.clipboard.writeText(text); return true; } catch { /* use the local fallback below */ }
+  }
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  document.body.appendChild(textarea);
+  textarea.select();
+  const copied = document.execCommand('copy');
+  textarea.remove();
+  return copied;
+}
+
+document.addEventListener('click', async (event) => {
+  const button = event.target.closest('[data-copy]');
+  if (!button) return;
+  const original = button.textContent;
+  try {
+    button.textContent = await copyText(decodeURIComponent(button.dataset.copy)) ? '已复制' : '复制失败，请手动选择';
+  } catch {
+    button.textContent = '复制失败，请手动选择';
+  }
+  window.setTimeout(() => { button.textContent = original; }, 1800);
+});

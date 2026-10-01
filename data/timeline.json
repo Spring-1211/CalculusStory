@@ -1,0 +1,9 @@
+[
+  {"year":1675,"date":"1675","title":"莱布尼茨开始使用积分记号","person":"leibniz","knowledge":"derivative","text":"莱布尼茨在手稿中使用 ∫ 表示求和式的积分思想。符号把微分与积分的运算结构显露出来，但现代严格基础仍要等待后来发展。","source":"https://mathshistory.st-andrews.ac.uk/Biographies/Leibniz/"},
+  {"year":1687,"date":"1687","title":"牛顿《自然哲学的数学原理》出版","person":"newton","knowledge":"derivative","text":"运动与力学问题展示了瞬时变化率的力量。《原理》主要使用几何极限论证，并不是今天教科书中的导数定义。","source":"https://mathshistory.st-andrews.ac.uk/Biographies/Newton/"},
+  {"year":1715,"date":"1715","title":"泰勒的增量法著作出版","person":"taylor","knowledge":"taylor-formula","text":"今天的泰勒公式出现在对增量、差分与插值问题的研究中；余项和严格条件由后来的分析学继续完善。","source":"https://mathshistory.st-andrews.ac.uk/Biographies/Taylor/"},
+  {"year":1748,"date":"1748","title":"欧拉《无穷分析引论》出版","person":"euler","knowledge":"mapping-function","text":"欧拉把函数置于分析学中心，系统组织指数、对数、三角和双曲函数。此时函数概念仍强烈依赖解析表达式。","source":"https://mathshistory.st-andrews.ac.uk/Biographies/Euler/"},
+  {"year":1821,"date":"1821","title":"柯西《分析教程》出版","person":"cauchy","knowledge":"sequence-limit","text":"柯西系统讨论极限、连续和级数，推动微积分从计算规则走向可论证的分析体系；现代 ε-δ 量词形式后来才逐渐定型。","source":"https://mathshistory.st-andrews.ac.uk/Biographies/Cauchy/"},
+  {"year":1837,"date":"1837","title":"狄利克雷讨论一般函数与傅里叶级数","person":"dirichlet","knowledge":"discontinuity","text":"狄利克雷在傅里叶级数研究中强调逐点确定的函数，并用有理数与无理数上的不同取值展示：函数不必是一条光滑曲线。","source":"https://mathshistory.st-andrews.ac.uk/Biographies/Dirichlet/"},
+  {"year":1861,"date":"19 世纪后半叶","title":"魏尔斯特拉斯推动分析语言精确化","person":"weierstrass","knowledge":"function-limit","text":"通过长期讲授与研究，魏尔斯特拉斯等人推动用量词和邻域控制极限、连续与收敛，减少对运动直觉和含混无穷小的依赖。","source":"https://mathshistory.st-andrews.ac.uk/Biographies/Weierstrass/"}
+]
