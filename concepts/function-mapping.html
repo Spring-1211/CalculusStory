@@ -1,20 +1,43 @@
 <!doctype html>
 <html lang="zh-CN">
-  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>映射与函数｜CalculusStory</title><link rel="stylesheet" href="../site.css"></head>
-  <body>
-    <header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark">C</span><span>CalculusStory</span></a><nav><a href="../index.html#chapters">章节</a><a href="https://github.com/Spring-1211/CalculusStory">GitHub</a></nav></header>
-    <main class="reading-page">
-      <article class="reading-column">
-        <p class="eyebrow">第一章 · 第一节 · 01.1</p><h1>映射与函数</h1>
-        <p class="reading-lead">函数不是一条公式，而是对每个允许输入做出唯一输出承诺的规则。</p>
-        <div class="question-strip"><strong>先问三个问题</strong><ol><li>没有公式，实验数据和算法规则还能是函数吗？</li><li>为什么同一个 <code>x²</code> 改变范围后性质会变？</li><li>“唯一输出”为什么比“能画曲线”更基本？</li></ol></div>
-        <h2>从公式到对应关系</h2><p>17 世纪的解析几何让曲线和代数表达式联系起来。19 世纪的傅里叶问题又迫使数学家处理分段规则和不能用一个熟悉公式写出的依赖关系。于是函数的核心从“表达式”转向“给每个输入唯一输出”。</p>
-        <h2>现代定义</h2><p>设 <code>A</code>、<code>B</code> 为集合。若每个 <code>x ∈ A</code> 都有唯一的 <code>y ∈ B</code> 与之对应，就得到映射 <code>f:A→B</code>。定义域决定允许什么输入，陪域说明输出放在哪个目标集合，值域则是实际出现的输出。</p>
-        <div class="example-grid"><div><span class="example-label">例子 01</span><h3><code>sin x</code> 的陪域</h3><p><code>sin:R→[-1,1]</code> 是满射；<code>sin:R→R</code> 仍是函数，却不是满射。公式没变，映射变了。</p></div><div><span class="example-label">例子 02</span><h3><code>x²</code> 的唯一性</h3><p>在整个实数上不是单射；限制到 <code>[0,+∞)</code> 后才有反函数 <code>√x</code>。</p></div></div>
-        <h2>把概念带到现实</h2><p>传感器标定把输入电压映到温度，程序把索引映到数组元素，几何变换把平面点映到新位置。AI 里的分类器也可以看成输入到标签或概率向量的映射，但“可逆”与否必须由结构和训练目标具体保证。</p>
-        <aside class="next-reading"><strong>继续追问</strong><a href="non-smooth-functions.html">三个不太规整的函数 →</a><a href="inverse-hyperbolic.html">反函数与双曲函数 →</a></aside>
-        <p class="source-note">完整讲义与参考资料：<a href="../上册/01%20函数与极限/01_1%20映射与函数.md">Markdown 文章</a>。</p>
-      </article>
-    </main>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="映射与函数：同济高等数学第一章第一节的动机、定义、反例与应用。">
+  <title>1.1 映射与函数｜CalculusStory</title>
+  <link rel="stylesheet" href="../site.css">
+  <link rel="stylesheet" href="../reader.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+</head>
+<body class="lesson-page">
+  <header class="site-header"><a class="site-name" href="../index.html">CalculusStory</a><nav aria-label="主导航"><a class="is-current" href="../index.html#contents">教材目录</a><a href="../graph.html">知识图谱</a><a href="https://github.com/Spring-1211/CalculusStory">GitHub</a></nav></header>
+  <main class="lesson-shell">
+    <aside class="lesson-toc" aria-label="本节目录"><a href="../index.html#chapter-1">← 返回第一章目录</a><p>本节结构</p><ol><li><a href="#questions">问题入口</a></li><li><a href="#history">概念从哪里来</a></li><li><a href="#definition">现代定义</a></li><li><a href="#examples">例子与反例</a></li><li><a href="#extensions">反函数与双曲函数</a></li><li><a href="#uses">用处与迁移</a></li><li><a href="#check">理解检查</a></li></ol></aside>
+    <article class="lesson-article">
+      <div class="lesson-meta"><span>上册 · 第一章 · 第一节</span><span>对应同济《高等数学》第八版</span><span>建议：1–2 课时</span></div>
+      <h1>映射与函数</h1>
+      <p class="lesson-deck">函数不是一条漂亮的公式，而是对“每一个允许输入”作出“唯一输出”承诺的规则。公式只是表达规则的一种方式。</p>
+      <div class="textbook-note"><strong>怎样配合教材</strong>先读本页的问题和例子，再回到教材熟悉符号与习题。这里不替代教材的定义和计算，而是解释那些定义为什么值得被发明。</div>
+
+      <section id="questions"><h2>一、先问三个自然问题</h2><ol class="opening-questions"><li>温度传感器给出一张数据表，没有一个统一公式，它能不能描述一个函数？</li><li>同一个表达式 $x^2$，为什么改变定义域或陪域，单射、满射和反函数就会改变？</li><li>一个关系什么时候只是“若干可能的配对”，什么时候才足以称为函数？</li></ol><p class="idea-line">本节的主线：先把“公式”退到幕后，只保留输入、输出和唯一对应；再把定义域、陪域和值域放回它们各自的位置。</p></section>
+
+      <section id="history"><h2>二、概念从哪里来：从变化关系到抽象对应</h2><p>天文学的数表、几何中的比例和运动学中的位置—时间关系，早于现代“函数”一词存在。但早期数学家通常关心的是某一道题的计算规则，并没有把“函数”作为独立对象来研究。</p><p>17 世纪解析几何把曲线和代数表达式连接起来；牛顿和莱布尼茨研究变化率时，函数主要仍表现为可以计算的解析式。欧拉在 18 世纪的分析学著作中把函数置于中心位置，推广了 $f(x)$ 的写法，也让指数、对数和三角函数进入统一的运算语言。</p><p>真正的压力来自 19 世纪的傅里叶级数与热传导问题：需要处理分段规则、实验数据，甚至无法由一个熟悉公式写出的依赖关系。狄利克雷的工作帮助人们明确：函数的核心不是“公式长什么样”，而是给定输入后，规则是否确定了唯一输出。</p><div class="history-note"><strong>史实边界</strong>“狄利克雷发明了现代函数定义”是过度简化。函数概念经历了伯努利、欧拉、傅里叶、柯西、狄利克雷等多次改写；本节只提炼这条演变中对初学者最有帮助的思想转折。</div><p>后来康托尔、戴德金等人把对应关系推广到任意集合，用双射比较无限集合的“大小”。于是，映射不再只是数到数的计算工具，而成为整个数学里描述结构的通用语言。</p></section>
+
+      <section id="definition"><h2>三、现代定义：到底承诺了什么？</h2><div class="definition"><span class="definition-label">教材定义（精简表述）</span><p>设 $A$、$B$ 是非空集合。若对每个 $x\in A$，按照某个对应规则，都有唯一的 $y\in B$ 与之对应，就称这个对应为从 $A$ 到 $B$ 的映射，记作 $f:A\to B$。</p></div><p>这个定义中有三个不可互换的部分：</p><ol><li><strong>定义域 $A$</strong>：允许输入什么。输入不在 $A$ 中时，函数没有义务给出结果。</li><li><strong>陪域 $B$</strong>：事先声明输出属于哪个目标集合。</li><li><strong>对应规则 $f$</strong>：对每个 $x\in A$ 指定一个且仅一个 $f(x)\in B$。</li></ol><p>实际产生的输出集合叫<strong>值域</strong>，记作 $f(A)$。它总是 $B$ 的子集，但不一定等于 $B$。</p><div class="formula-block">$$f:A\to B,\qquad f(A)=\{f(x)\mid x\in A\}\subseteq B$$</div><figure class="lesson-figure"><img src="../assets/figures/mapping-domain-codomain.svg" alt="定义域中的元素通过唯一箭头映到陪域，值域是实际被箭头命中的部分"><figcaption>图 1：陪域是定义时指定的目标集合，值域是实际被命中的输出集合。</figcaption></figure><h3>单射、满射、双射：三个不同的问题</h3><table class="comparison"><thead><tr><th>性质</th><th>它在问什么？</th><th>形式化表达</th></tr></thead><tbody><tr><td>单射</td><td>两个不同输入会不会撞到同一输出？</td><td>$f(x_1)=f(x_2)\Rightarrow x_1=x_2$</td></tr><tr><td>满射</td><td>陪域中的每个目标都有没有被命中？</td><td>$\forall y\in B,\ \exists x\in A,\ f(x)=y$</td></tr><tr><td>双射</td><td>既不碰撞，又不遗漏。</td><td>单射且满射</td></tr></tbody></table></section>
+
+      <section id="examples"><h2>四、例子与反例：定义域和陪域不能省略</h2><div class="example"><strong>例 1：同一个 $x^2$，三种映射</strong><p>$f:\mathbb R\to\mathbb R,\ f(x)=x^2$ 既非单射也非满射；$f:\mathbb R\to[0,+\infty)$ 满射但非单射；$f:[0,+\infty)\to[0,+\infty)$ 才是双射。表达式没有变，数学对象变了。</p></div><div class="example"><strong>例 2：$\sin x$ 的陪域</strong><p>$\sin:\mathbb R\to[-1,1]$ 是满射；$\sin:\mathbb R\to\mathbb R$ 仍是函数，但不是满射。不能只写“$\sin x$ 是不是满射”，必须先说清楚它从哪里到哪里。</p></div><div class="example"><strong>反例：圆关系不是函数</strong><p>关系 $x^2+y^2=1$ 在 $x=0$ 时给出 $y=1$ 或 $y=-1$ 两个输出，因此它不是从 $x$ 到 $y$ 的函数。只取上半圆后，才得到 $y=\sqrt{1-x^2}$ 这样的函数。</p></div><h3>三个“故意不规整”的函数</h3><p>它们不是和教材主线无关的趣闻，而是用来测试定义的边界：函数资格、连续性和光滑性是三件不同的事。</p><table class="comparison"><thead><tr><th>函数</th><th>它检验什么？</th><th>最重要的观察</th></tr></thead><tbody><tr><td>狄利克雷函数</td><td>函数是否必须有统一公式或连续图像？</td><td>$D(x)=1$（有理数），$D(x)=0$（无理数）；每个输入仍有唯一输出，但处处不连续。</td></tr><tr><td>取整函数</td><td>“向下取整”与“截去小数”是否相同？</td><td>$\lfloor-1.2\rfloor=-2$，图像是台阶；负数暴露了直觉中的歧义。</td></tr><tr><td>符号函数</td><td>函数可以只保留分类信息吗？</td><td>$\operatorname{sgn}(x)$ 只记录正、零、负；它舍弃大小，保留方向。</td></tr></tbody></table><p>这些例子共同说明：函数定义只要求“每个输入有且只有一个输出”。连续、可导、可积、可逆，都是后来需要另外研究的性质。</p></section>
+
+      <section id="extensions"><h2>五、从函数自然走向反函数与双曲函数</h2><h3>1. 反函数不是倒数</h3><p>反函数回答的是“已知输出，能否唯一找回输入”。因此原函数至少要在选定范围内是单射；若要让反函数定义在整个陪域上，还需要满射。$f^{-1}$ 与 $1/f$ 是完全不同的记号：$e^x$ 的反函数是 $\ln x$，不是 $e^{-x}$。</p><div class="formula-block">$$f^{-1}(f(x))=x,\qquad f(f^{-1}(y))=y$$</div><p>正弦函数在整个实数上周期重复，不是单射。限制到 $[-\pi/2,\pi/2]$ 后，才得到标准反函数 $\arcsin:[-1,1]\to[-\pi/2,\pi/2]$。因此 $\sin(\arcsin x)=x$ 对 $x\in[-1,1]$ 成立，而 $\arcsin(\sin x)=x$ 只在主值区间成立。</p><h3>2. 双曲函数为什么长得像三角函数？</h3><p>双曲正弦和双曲余弦从指数函数的增长与衰减组合而来：</p><div class="formula-block">$$\sinh x=\frac{e^x-e^{-x}}2,\qquad \cosh x=\frac{e^x+e^{-x}}2$$</div><p>于是 $\cosh^2x-\sinh^2x=1$，点 $(\cosh t,\sinh t)$ 落在双曲线 $X^2-Y^2=1$ 上；三角函数则满足圆方程 $X^2+Y^2=1$。它们形式相似，是因为都在用一对函数参数化几何曲线，但几何不变量不同。</p><p>双曲函数不是“把正弦换个名字”：悬链线、方程 $y''=y$、相对论的 Lorentz 变换都会自然产生它们。反双曲函数的对数公式，则来自把上面的指数定义反解出来。</p></section>
+
+      <section id="uses"><h2>六、它今天有什么用？</h2><ul><li><strong>理论内部：</strong>复合函数、逆映射、极限、连续和导数都建立在“函数是一个对象”这件事上；多元函数只是把定义域换成平面或空间中的集合。</li><li><strong>工程与计算：</strong>传感器标定、坐标变换、信号分段、分页和量化都在使用输入到输出的规则；定义域记录系统允许的工作范围。</li><li><strong>AI 与计算机科学：</strong>分类器把输入映到标签或概率向量，神经网络是许多函数复合而成的计算图；$\operatorname{tanh}$ 等激活函数压缩数值尺度并保留可微结构，但是否可逆要由具体网络结构保证。</li></ul><p>抽象化的价值不在于让表达式变少，而在于让同一种结构可以跨越数据、几何、物理和程序反复使用。</p></section>
+
+      <section id="check"><h2>七、理解检查：不要只会背定义</h2><ol class="check-list"><li>分别判断 $x^2:\mathbb R\to\mathbb R$、$x^2:\mathbb R\to[0,+\infty)$、$x^2:[0,+\infty)\to[0,+\infty)$ 的单射性、满射性和双射性，并说明改变了哪一部分。</li><li>为什么 $\sin:\mathbb R\to[-1,1]$ 是满射，而 $\sin:\mathbb R\to\mathbb R$ 不是？把“值域”和“陪域”各用一句话说清楚。</li><li>构造一个不是解析式、但确实是函数的例子；再构造一个是关系、却不是函数的例子。</li><li>解释 $\arcsin(\sin(5\pi/6))$ 为什么等于 $\pi/6$，并指出这与“主值区间”有什么关系。</li><li>用三句话说明：函数、连续函数、可导函数之间是什么关系？哪些蕴含成立，哪些不成立？</li></ol></section>
+
+      <section class="references"><h2>参考与延伸</h2><ul><li>同济大学数学科学学院：《高等数学》第八版上册，第一章第一节。</li><li><a href="https://mathshistory.st-andrews.ac.uk/HistTopics/Functions/">MacTutor：The function concept</a>。</li><li><a href="https://encyclopediaofmath.org/wiki/Function">Encyclopedia of Mathematics：Function</a>。</li><li><a href="non-smooth-functions.html">三个不太规整的函数：课堂板书版</a> · <a href="inverse-hyperbolic.html">反函数与双曲函数：深入阅读版</a>。</li></ul></section>
+      <div class="lesson-next"><a href="../index.html#chapter-1">← 回到第一章目录</a><a href="../ai.html?id=mapping-function">用提示词继续追问 →</a></div>
+    </article>
+  </main>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]})"></script>
+</body>
 </html>

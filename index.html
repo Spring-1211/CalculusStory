@@ -3,114 +3,79 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="CalculusStory 高等数学B故事册：从问题、历史和应用理解高等数学。">
-    <title>CalculusStory｜高等数学B故事册</title>
+    <meta name="description" content="同济《高等数学》第八版配套讲义：沿教材顺序理解概念的动机、历史、定义与应用。">
+    <title>CalculusStory｜高等数学 B 配套讲义</title>
     <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="reader.css">
   </head>
-  <body>
-    <header class="topbar">
-      <a class="brand" href="index.html" aria-label="CalculusStory 首页">
-        <span class="brand-mark">C</span>
-        <span>CalculusStory</span>
-      </a>
+  <body class="home-page">
+    <header class="site-header">
+      <a class="site-name" href="index.html">CalculusStory</a>
       <nav aria-label="主导航">
-        <a href="#chapters">章节</a>
-        <a href="#method">学习方法</a>
-        <a href="graph.html">知识图谱</a>
-        <a href="people.html">人物</a>
-        <a href="formalization.html">Lean4</a>
+        <a class="is-current" href="#contents">教材目录</a>
+        <a href="#method">怎样使用</a>
         <a href="https://github.com/Spring-1211/CalculusStory">GitHub</a>
       </nav>
     </header>
 
     <main>
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">高等数学 B · 同济第八版配套</p>
-          <h1>高等数学B故事册</h1>
-          <p class="lead">数学不是一串从天上掉下来的公式。每个概念都曾经是一个问题的答案。</p>
-          <div class="hero-actions">
-            <a class="button primary" href="concepts/function-mapping.html">从“函数为什么存在”开始</a>
-            <a class="button secondary" href="https://github.com/Spring-1211/CalculusStory">查看仓库</a>
-          </div>
+      <section class="home-intro">
+        <p class="kicker">同济《高等数学》第八版 · 高等数学 B</p>
+        <h1>把定义放回问题中</h1>
+        <p class="home-summary">这是一份与教材逐节对应的补充讲义。教材负责给出完整体系和计算训练；这里补上概念为什么出现、定义为什么这样写、它解决什么问题，以及今天在哪里使用。</p>
+        <div class="home-start">
+          <a class="text-action" href="concepts/function-mapping.html">开始第一节：映射与函数 <span aria-hidden="true">→</span></a>
+          <span>当前完成：第一章第一节示范讲义</span>
         </div>
-        <aside class="hero-note" aria-label="本册的阅读线索">
-          <p class="note-label">每一节都回答</p>
-          <ol>
-            <li><span>01</span> 当时遇到了什么问题？</li>
-            <li><span>02</span> 为什么要这样定义？</li>
-            <li><span>03</span> 现在能用它做什么？</li>
-          </ol>
+      </section>
+
+      <div class="home-layout" id="contents">
+        <aside class="volume-index" aria-label="册次与章节">
+          <p>教材目录</p>
+          <a class="is-current" href="#chapter-1"><span>上册 · 第 1 章</span>函数与极限</a>
+          <span><b>上册 · 第 2 章</b>导数与微分</span>
+          <span><b>上册 · 第 3 章</b>微分中值定理与导数应用</span>
+          <span><b>上册 · 第 4–7 章</b>积分、应用与微分方程</span>
+          <span><b>下册 · 第 8–12 章</b>多元微积分与级数</span>
         </aside>
+
+        <section class="chapter" id="chapter-1">
+          <header class="chapter-heading">
+            <div><span>01</span><h2>函数与极限</h2></div>
+            <p>从“什么是函数”出发，建立描述无限逼近与连续变化的语言。</p>
+          </header>
+          <ol class="lesson-list">
+            <li class="is-ready"><a href="concepts/function-mapping.html"><span class="lesson-number">1.1</span><span class="lesson-title"><strong>映射与函数</strong><small>为什么函数不是一个公式？定义域、陪域、反函数和特殊函数如何连成一条思想线？</small></span><span class="lesson-state">阅读讲义</span></a></li>
+            <li><span class="lesson-number">1.2</span><span class="lesson-title"><strong>数列的极限</strong><small>无限过程没有最后一步，怎样仍能给出确定结论？</small></span><span class="lesson-state">编写中</span></li>
+            <li><span class="lesson-number">1.3</span><span class="lesson-title"><strong>函数的极限</strong><small>为什么研究某点附近时，可以暂时不管这一点的函数值？</small></span><span class="lesson-state">编写中</span></li>
+            <li><span class="lesson-number">1.4</span><span class="lesson-title"><strong>无穷小与无穷大</strong><small>它们是数，还是变化过程的性质？</small></span><span class="lesson-state">编写中</span></li>
+            <li><span class="lesson-number">1.5</span><span class="lesson-title"><strong>极限运算法则</strong><small>什么时候可以把复杂极限拆开计算？</small></span><span class="lesson-state">编写中</span></li>
+            <li><span class="lesson-number">1.6</span><span class="lesson-title"><strong>极限存在准则与两个重要极限</strong><small>还不知道答案时，怎样先证明极限存在？</small></span><span class="lesson-state">编写中</span></li>
+            <li><span class="lesson-number">1.7</span><span class="lesson-title"><strong>无穷小的比较</strong><small>都趋于零，为什么还要比较谁更快？</small></span><span class="lesson-state">编写中</span></li>
+            <li><span class="lesson-number">1.8</span><span class="lesson-title"><strong>函数的连续性与间断点</strong><small>“没有断开”如何变成可证明的数学条件？</small></span><span class="lesson-state">编写中</span></li>
+            <li><span class="lesson-number">1.9</span><span class="lesson-title"><strong>连续函数的运算与初等函数</strong><small>怎样用少量基本结论覆盖大批函数？</small></span><span class="lesson-state">编写中</span></li>
+            <li><span class="lesson-number">1.10</span><span class="lesson-title"><strong>闭区间上连续函数的性质</strong><small>为什么闭区间能保证最值和零点真的出现？</small></span><span class="lesson-state">编写中</span></li>
+          </ol>
+        </section>
+      </div>
+
+      <section class="home-method" id="method">
+        <p class="kicker">一节课的阅读顺序</p>
+        <h2>先找到问题，再使用定义</h2>
+        <ol>
+          <li><span>01</span><div><strong>问题</strong><p>先问旧方法卡在哪里，避免把定义当成凭空规定。</p></div></li>
+          <li><span>02</span><div><strong>定义</strong><p>逐字检查条件，理解每个限制保护了什么结论。</p></div></li>
+          <li><span>03</span><div><strong>例子与反例</strong><p>正例告诉你怎样使用，反例告诉你边界在哪里。</p></div></li>
+          <li><span>04</span><div><strong>迁移</strong><p>最后再连接后续定理、物理、计算机与 AI。</p></div></li>
+        </ol>
       </section>
 
-      <section class="section" id="chapters">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">第一章 · 函数与极限</p>
-            <h2>先学会提出好问题</h2>
-          </div>
-          <label class="search-box">
-            <span class="sr-only">筛选概念</span>
-            <input id="concept-search" type="search" placeholder="搜索概念" autocomplete="off">
-          </label>
-        </div>
-        <div class="concept-grid" id="concept-grid">
-          <a class="concept-card" data-search="映射 函数 定义域 陪域 值域" href="concepts/function-mapping.html">
-            <div class="card-index">01.1</div>
-            <h3>映射与函数</h3>
-            <p>从“公式”走向“对应关系”：为什么每个输入必须有且只有一个输出？</p>
-            <span class="card-link">进入小节 <span aria-hidden="true">→</span></span>
-          </a>
-          <a class="concept-card" data-search="狄利克雷 取整 符号 不连续 非光滑" href="concepts/non-smooth-functions.html">
-            <div class="card-index">01.1a</div>
-            <h3>三个不太规整的函数</h3>
-            <p>狄利克雷函数、取整函数、符号函数：用反例把函数的边界看清楚。</p>
-            <span class="card-link">进入小节 <span aria-hidden="true">→</span></span>
-          </a>
-          <a class="concept-card" data-search="反函数 反三角 双曲正弦 双曲余弦 sinh cosh" href="concepts/inverse-hyperbolic.html">
-            <div class="card-index">01.1b</div>
-            <h3>反函数与双曲函数</h3>
-            <p>为什么要限制定义域？`arcsin`、`sinh`、`cosh` 和 `tanh` 各自在解决什么问题？</p>
-            <span class="card-link">进入小节 <span aria-hidden="true">→</span></span>
-          </a>
-          <div class="concept-card upcoming" data-search="数列 极限">
-            <div class="card-index">01.2</div>
-            <h3>数列的极限</h3>
-            <p>待补：当“无限继续”需要一个可以证明的终点。</p>
-            <span class="card-link muted">即将展开</span>
-          </div>
-        </div>
-        <p class="empty-state" id="empty-state" hidden>没有找到这个词。试试“函数”“双曲”或“极限”。</p>
-      </section>
-
-      <section class="module-strip" aria-label="知识库模块">
-        <a href="graph.html"><span>01</span><strong>知识图谱</strong><small>前置、后继与同主题关联</small></a>
-        <a href="people.html"><span>02</span><strong>数学家人物库</strong><small>人物、思想与教材节点</small></a>
-        <a href="exercises.html"><span>03</span><strong>配套习题</strong><small>题目、提示与知识点标签</small></a>
-        <a href="formalization.html"><span>04</span><strong>Lean4 映射</strong><small>陈述、代码与验证状态</small></a>
-        <a href="timeline.html"><span>05</span><strong>思想时间线</strong><small>问题如何一代代接力</small></a>
-        <a href="ai.html"><span>06</span><strong>AI 数学辅助</strong><small>受约束的追问提示词</small></a>
-      </section>
-
-      <section class="method-band" id="method">
-        <div class="method-intro">
-          <p class="eyebrow">我们怎样读数学</p>
-          <h2>把公式放回它诞生的地方</h2>
-          <p>每一节都从一个自然问题起步，再逐步引出定义、反例和应用。你不需要先喜欢公式，先弄懂它为什么值得被发明。</p>
-        </div>
-        <div class="method-list">
-          <div><span>问题</span><p>先问“如果没有它，哪里会卡住？”</p></div>
-          <div><span>边界</span><p>用一个反例检查定义到底保护了什么。</p></div>
-          <div><span>迁移</span><p>把同一个思想带到物理、代码、AI 和现实模型。</p></div>
-        </div>
+      <section class="secondary-tools" aria-label="拓展工具">
+        <div><p class="kicker">拓展，不打断教材主线</p><h2>需要时再打开</h2></div>
+        <nav><a href="graph.html">知识关系图</a><a href="people.html">数学家与思想史</a><a href="exercises.html">概念习题</a><a href="formalization.html">Lean4 形式化</a><a href="timeline.html">思想时间线</a></nav>
       </section>
     </main>
 
-    <footer class="footer">
-      <span>CalculusStory · 高等数学B故事册</span>
-      <a href="https://github.com/Spring-1211/CalculusStory">Spring-1211/CalculusStory</a>
-    </footer>
-    <script src="site.js"></script>
+    <footer class="site-footer"><span>CalculusStory · 高等数学 B 配套讲义</span><span>内容持续校订，史实与公式均附来源</span></footer>
   </body>
 </html>

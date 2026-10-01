@@ -1,0 +1,148 @@
+:root {
+  --reader-ink: #1d2528;
+  --reader-muted: #667075;
+  --reader-rule: #dfe3e1;
+  --reader-accent: #245c5a;
+  --reader-soft: #eef3f1;
+  --reader-warm: #f5f1e9;
+  --reader-paper: #fbfbf9;
+}
+.home-page, .lesson-page { color: var(--reader-ink); background: var(--reader-paper); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "PingFang SC", sans-serif; font-size: 16px; line-height: 1.75; }
+.home-page main, .lesson-page main { overflow: visible; }
+.site-header { display: flex; align-items: center; justify-content: space-between; max-width: 1120px; margin: 0 auto; padding: 24px 28px; border-bottom: 1px solid var(--reader-rule); }
+.site-name { font-family: Georgia, "Noto Serif CJK SC", serif; font-size: 19px; font-weight: 700; }
+.site-header nav { display: flex; gap: 26px; font-size: 13px; }
+.site-header nav a { color: var(--reader-muted); }
+.site-header nav a:hover, .site-header nav .is-current { color: var(--reader-ink); }
+.site-header nav .is-current { text-decoration: underline; text-decoration-color: var(--reader-accent); text-underline-offset: 7px; }
+.kicker { margin: 0 0 12px; color: var(--reader-accent); font-size: 12px; font-weight: 700; letter-spacing: .08em; }
+.home-intro { max-width: 1120px; margin: 0 auto; padding: 72px 28px 62px; border-bottom: 1px solid var(--reader-rule); }
+.home-intro h1 { max-width: none; margin: 0 0 22px; font-family: Georgia, "Noto Serif CJK SC", serif; font-size: clamp(42px, 5vw, 64px); font-weight: 600; line-height: 1.18; }
+.home-summary { max-width: 720px; margin: 0; color: #475156; font-family: Georgia, "Noto Serif CJK SC", serif; font-size: 18px; line-height: 1.9; }
+.home-start { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 28px; font-size: 13px; color: var(--reader-muted); }
+.text-action { color: var(--reader-accent); font-weight: 700; }
+.text-action:hover { text-decoration: underline; text-underline-offset: 4px; }
+.home-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 72px; max-width: 1120px; margin: 0 auto; padding: 64px 28px 90px; }
+.volume-index { align-self: start; position: sticky; top: 24px; display: grid; gap: 0; border-top: 1px solid var(--reader-rule); }
+.volume-index > p { margin: 0; padding: 14px 0; color: var(--reader-muted); font-size: 12px; font-weight: 700; }
+.volume-index > a, .volume-index > span { display: grid; gap: 2px; padding: 13px 0; border-top: 1px solid var(--reader-rule); color: #7a8285; font-size: 13px; }
+.volume-index b, .volume-index a span { color: inherit; font-size: 11px; font-weight: 600; }
+.volume-index .is-current { color: var(--reader-ink); }
+.chapter-heading { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 40px; align-items: end; padding-bottom: 24px; border-bottom: 2px solid var(--reader-ink); }
+.chapter-heading div { display: flex; align-items: baseline; gap: 18px; }
+.chapter-heading span { color: var(--reader-accent); font: 600 14px/1 Georgia, serif; }
+.chapter-heading h2 { margin: 0; font-family: Georgia, "Noto Serif CJK SC", serif; font-size: 34px; font-weight: 600; }
+.chapter-heading p { margin: 0; color: var(--reader-muted); font-size: 13px; line-height: 1.7; }
+.lesson-list { list-style: none; margin: 0; padding: 0; }
+.lesson-list > li, .lesson-list a { display: grid; grid-template-columns: 56px minmax(0, 1fr) 72px; gap: 16px; align-items: baseline; }
+.lesson-list > li { padding: 20px 0; border-bottom: 1px solid var(--reader-rule); color: #92999b; }
+.lesson-list a { grid-column: 1 / -1; color: var(--reader-ink); }
+.lesson-list .is-ready:hover { background: linear-gradient(90deg, transparent, var(--reader-soft) 12%, var(--reader-soft) 88%, transparent); }
+.lesson-number { color: var(--reader-muted); font: 600 13px/1 Georgia, serif; }
+.lesson-title { display: grid; gap: 3px; }
+.lesson-title strong { font-family: Georgia, "Noto Serif CJK SC", serif; font-size: 18px; font-weight: 600; }
+.lesson-title small { color: var(--reader-muted); font-size: 13px; line-height: 1.55; }
+.lesson-state { justify-self: end; font-size: 11px; white-space: nowrap; }
+.is-ready .lesson-state { color: var(--reader-accent); font-weight: 700; }
+.home-method { max-width: 1064px; margin: 0 auto 90px; padding: 44px 48px; background: var(--reader-soft); }
+.home-method h2 { margin: 0 0 30px; font-family: Georgia, "Noto Serif CJK SC", serif; font-size: 30px; font-weight: 600; }
+.home-method ol { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; list-style: none; margin: 0; padding: 0; }
+.home-method li { display: grid; grid-template-columns: 24px 1fr; gap: 10px; }
+.home-method li > span { color: var(--reader-accent); font: 600 11px/1.8 Georgia, serif; }
+.home-method strong { font-size: 14px; }
+.home-method p { margin: 5px 0 0; color: var(--reader-muted); font-size: 13px; line-height: 1.65; }
+.secondary-tools { display: flex; justify-content: space-between; gap: 40px; max-width: 1064px; margin: 0 auto 80px; padding-top: 28px; border-top: 1px solid var(--reader-rule); }
+.secondary-tools h2 { margin: 0; font-family: Georgia, "Noto Serif CJK SC", serif; font-size: 24px; font-weight: 600; }
+.secondary-tools nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px; max-width: 560px; font-size: 13px; }
+.secondary-tools nav a { color: var(--reader-muted); text-decoration: underline; text-decoration-color: #bcc6c3; text-underline-offset: 4px; }
+.site-footer { display: flex; justify-content: space-between; max-width: 1120px; margin: 0 auto; padding: 26px 28px 40px; border-top: 1px solid var(--reader-rule); color: var(--reader-muted); font-size: 12px; }
+
+.lesson-shell { display: grid; grid-template-columns: 210px minmax(0, 740px); gap: 64px; max-width: 1060px; margin: 0 auto; padding: 48px 28px 100px; }
+.lesson-toc { align-self: start; position: sticky; top: 24px; }
+.lesson-toc > a { display: inline-block; margin-bottom: 26px; color: var(--reader-muted); font-size: 12px; }
+.lesson-toc p { margin: 0 0 8px; color: var(--reader-muted); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+.lesson-toc ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--reader-rule); }
+.lesson-toc li { border-bottom: 1px solid var(--reader-rule); }
+.lesson-toc li a { display: block; padding: 9px 0; color: var(--reader-muted); font-size: 12px; line-height: 1.45; }
+.lesson-toc li a:hover { color: var(--reader-accent); }
+.lesson-article { min-width: 0; }
+.lesson-meta { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 18px; color: var(--reader-muted); font-size: 12px; }
+.lesson-article > h1 { max-width: none; margin: 0 0 12px; font-family: Georgia, "Noto Serif CJK SC", serif; font-size: clamp(36px, 5vw, 52px); font-weight: 600; line-height: 1.22; }
+.lesson-deck { margin: 0 0 34px; color: #465055; font-family: Georgia, "Noto Serif CJK SC", serif; font-size: 18px; line-height: 1.85; }
+.textbook-note { margin: 0 0 42px; padding: 17px 20px; border-left: 3px solid var(--reader-accent); background: var(--reader-soft); font-size: 14px; }
+.textbook-note strong { display: block; margin-bottom: 4px; }
+.lesson-article section { padding-top: 28px; margin-top: 28px; border-top: 1px solid var(--reader-rule); }
+.lesson-article h2 { margin: 0 0 16px; font-family: Georgia, "Noto Serif CJK SC", serif; font-size: 26px; font-weight: 600; line-height: 1.4; }
+.lesson-article h3 { margin: 26px 0 9px; font-size: 17px; font-weight: 700; }
+.lesson-article p, .lesson-article li { color: #303a3e; font-size: 16px; line-height: 1.9; }
+.lesson-article p { margin: 0 0 16px; }
+.lesson-article ul, .lesson-article ol { margin: 10px 0 20px; padding-left: 24px; }
+.lesson-article li + li { margin-top: 7px; }
+.opening-questions { margin: 0; padding: 24px 26px 24px 48px; background: var(--reader-warm); }
+.opening-questions li { padding-left: 5px; }
+.idea-line { margin: 24px 0; padding: 18px 0; border-top: 1px solid var(--reader-ink); border-bottom: 1px solid var(--reader-ink); font-family: Georgia, "Noto Serif CJK SC", serif; font-size: 18px; line-height: 1.75; }
+.definition { margin: 22px 0; padding: 22px 24px; border: 1px solid #cad4d1; background: #fff; }
+.definition-label { display: block; margin-bottom: 9px; color: var(--reader-accent); font-size: 11px; font-weight: 800; letter-spacing: .08em; }
+.definition p:last-child { margin-bottom: 0; }
+.formula-block { margin: 20px 0; padding: 18px; overflow-x: auto; background: #fff; border-top: 1px solid var(--reader-rule); border-bottom: 1px solid var(--reader-rule); text-align: center; }
+.lesson-figure { margin: 26px 0; }
+.lesson-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--reader-rule); }
+.lesson-figure figcaption { margin-top: 8px; color: var(--reader-muted); font-size: 12px; }
+.comparison { width: 100%; margin: 20px 0 26px; border-collapse: collapse; font-size: 14px; }
+.comparison th, .comparison td { padding: 12px 10px; border-bottom: 1px solid var(--reader-rule); text-align: left; vertical-align: top; }
+.comparison th { color: var(--reader-muted); font-size: 12px; font-weight: 700; }
+.comparison td:first-child { width: 24%; font-weight: 700; }
+.example { margin: 22px 0; padding: 18px 20px; border-left: 2px solid #9caeaa; background: #f6f8f7; }
+.example > strong { display: block; margin-bottom: 5px; font-size: 13px; }
+.example p:last-child { margin-bottom: 0; }
+.history-note { margin: 24px 0; padding: 18px 20px; background: var(--reader-warm); }
+.history-note strong { display: block; margin-bottom: 7px; font-size: 13px; }
+.misconceptions { display: grid; gap: 0; margin: 20px 0; border-top: 1px solid var(--reader-rule); }
+.misconceptions div { display: grid; grid-template-columns: 110px 1fr; gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--reader-rule); }
+.misconceptions strong { color: #9a4f3d; font-size: 13px; }
+.misconceptions p { margin: 0; font-size: 14px; }
+.check-list { counter-reset: question; list-style: none; padding: 0 !important; }
+.check-list li { position: relative; padding: 16px 0 16px 42px; border-bottom: 1px solid var(--reader-rule); }
+.check-list li::before { position: absolute; left: 0; top: 18px; counter-increment: question; content: counter(question, decimal-leading-zero); color: var(--reader-accent); font: 600 12px/1.5 Georgia, serif; }
+.lesson-next { display: flex; justify-content: space-between; gap: 20px; margin-top: 44px; padding-top: 20px; border-top: 2px solid var(--reader-ink); font-size: 13px; }
+.lesson-next a { color: var(--reader-accent); font-weight: 700; }
+.references, .references li, .references p { color: var(--reader-muted) !important; font-size: 13px !important; line-height: 1.65 !important; }
+.katex-display { margin: .5em 0 !important; overflow-x: auto; overflow-y: hidden; }
+
+@media (max-width: 820px) {
+  .home-layout { grid-template-columns: 1fr; gap: 38px; }
+  .volume-index { position: static; grid-template-columns: repeat(2, 1fr); column-gap: 20px; }
+  .volume-index > p { grid-column: 1 / -1; }
+  .chapter-heading { grid-template-columns: 1fr; gap: 12px; }
+  .home-method ol { grid-template-columns: repeat(2, 1fr); }
+  .lesson-shell { grid-template-columns: 1fr; gap: 24px; }
+  .lesson-toc { position: static; }
+  .lesson-toc ol { display: flex; gap: 8px 18px; flex-wrap: wrap; padding-top: 10px; }
+  .lesson-toc li { border: 0; }
+  .lesson-toc li a { padding: 3px 0; }
+}
+@media (max-width: 560px) {
+  .site-header { padding: 18px 20px; }
+  .site-header nav { gap: 15px; }
+  .site-header nav a:nth-child(2) { display: none; }
+  .home-intro { padding: 48px 20px; }
+  .home-intro h1 { font-size: 39px; }
+  .home-summary { font-size: 16px; }
+  .home-layout { padding: 42px 20px 64px; }
+  .volume-index { grid-template-columns: 1fr; }
+  .lesson-list > li, .lesson-list a { grid-template-columns: 42px minmax(0, 1fr); }
+  .lesson-state { display: none; }
+  .home-method { margin: 0 20px 64px; padding: 30px 24px; }
+  .home-method ol { grid-template-columns: 1fr; }
+  .secondary-tools { display: block; margin: 0 20px 60px; }
+  .secondary-tools nav { justify-content: flex-start; margin-top: 20px; }
+  .site-footer { display: grid; gap: 5px; padding: 22px 20px 34px; }
+  .lesson-shell { padding: 30px 20px 70px; }
+  .lesson-article > h1 { font-size: 38px; }
+  .lesson-deck { font-size: 16px; }
+  .lesson-article p, .lesson-article li { font-size: 15px; line-height: 1.85; }
+  .opening-questions { padding: 20px 20px 20px 40px; }
+  .comparison { display: table; table-layout: fixed; width: 100%; white-space: normal; word-break: break-word; }
+  .comparison th, .comparison td { overflow-wrap: anywhere; padding: 9px 6px; }
+  .misconceptions div { grid-template-columns: 1fr; gap: 3px; }
+}
