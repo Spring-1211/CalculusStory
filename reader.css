@@ -15,6 +15,8 @@
 .site-header nav a { color: var(--reader-muted); }
 .site-header nav a:hover, .site-header nav .is-current { color: var(--reader-ink); }
 .site-header nav .is-current { text-decoration: underline; text-decoration-color: var(--reader-accent); text-underline-offset: 7px; }
+.site-header .unified-nav { max-width: calc(100% - 190px); gap: 15px; }
+.site-header .unified-nav a.active { color: var(--reader-accent); font-weight: 800; text-decoration: underline; text-underline-offset: 7px; }
 .kicker { margin: 0 0 12px; color: var(--reader-accent); font-size: 12px; font-weight: 700; letter-spacing: .08em; }
 .home-intro { max-width: 1120px; margin: 0 auto; padding: 72px 28px 62px; border-bottom: 1px solid var(--reader-rule); }
 .home-intro h1 { max-width: none; margin: 0 0 22px; font-family: Georgia, "Noto Serif CJK SC", serif; font-size: clamp(42px, 5vw, 64px); font-weight: 600; line-height: 1.18; }
@@ -124,7 +126,7 @@
 @media (max-width: 560px) {
   .site-header { padding: 18px 20px; }
   .site-header nav { gap: 15px; }
-  .site-header nav a:nth-child(2) { display: none; }
+  .site-header .unified-nav { max-width: calc(100% - 155px); }
   .home-intro { padding: 48px 20px; }
   .home-intro h1 { font-size: 39px; }
   .home-summary { font-size: 16px; }

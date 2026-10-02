@@ -18,7 +18,8 @@ const copyButton = (text, label = '复制代码') => `<button class="button seco
 
 function shell(title, eyebrow, body) {
   document.title = `${title}｜CalculusStory`;
-  document.querySelector('#portal-root').innerHTML = `<header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">C</span><span>CalculusStory</span></a><nav><a href="graph.html">知识图谱</a><a href="people.html">数学家</a><a href="exercises.html">习题</a><a href="timeline.html">时间线</a><a href="formalization.html">Lean4</a><a href="ai.html">AI 辅助</a><a href="https://github.com/Spring-1211/CalculusStory">GitHub</a></nav></header><main class="portal-page"><div class="portal-column"><p class="eyebrow">${esc(eyebrow)}</p><h1>${esc(title)}</h1>${body}</div></main>`;
+  const page = document.body.dataset.portal;
+  document.querySelector('#portal-root').innerHTML = `<header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">C</span><span>CalculusStory</span></a><nav class="unified-nav" aria-label="主导航"><a class="${page === 'knowledge' ? 'active' : ''}" href="index.html#chapters">章节</a><a href="index.html#method">学习方法</a><a href="graph.html">知识图谱</a><a class="${page === 'people' ? 'active' : ''}" href="people.html">数学家</a><a class="${page === 'exercises' ? 'active' : ''}" href="exercises.html">习题</a><a href="timeline.html">时间线</a><a class="${page === 'formalization' ? 'active' : ''}" href="formalization.html">Lean4</a><a href="ai.html">AI 辅助</a><a href="https://github.com/Spring-1211/CalculusStory">GitHub</a></nav></header><main class="portal-page"><div class="portal-column"><p class="eyebrow">${esc(eyebrow)}</p><h1>${esc(title)}</h1>${body}</div></main>`;
 }
 
 function renderKnowledge(data) {

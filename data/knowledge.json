@@ -33,6 +33,7 @@
     {
       "id": "sequence-limit",
       "title": "数列的极限",
+      "status": "讲义待补",
       "chapter": "上册 · 第一章 · 第二节",
       "type": "分析概念",
       "summary": "把“无限逼近”变成一个关于任意精度都能保证的陈述。",
