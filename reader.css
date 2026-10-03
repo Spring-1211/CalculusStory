@@ -148,3 +148,55 @@
   .comparison th, .comparison td { overflow-wrap: anywhere; padding: 9px 6px; }
   .misconceptions div { grid-template-columns: 1fr; gap: 3px; }
 }
+
+/* Shared reading surface: restrained typography, generous rhythm, one action colour. */
+:root {
+  --reader-ink: #1d1d1f;
+  --reader-muted: #6e6e73;
+  --reader-rule: #d2d2d7;
+  --reader-accent: #0071e3;
+  --reader-soft: #f5f5f7;
+  --reader-warm: #f5f5f7;
+  --reader-paper: #fff;
+}
+
+.home-page, .lesson-page { color: var(--reader-ink); background: var(--reader-paper); }
+.site-header { max-width: 1200px; padding: 18px 24px; border-bottom-color: var(--reader-rule); }
+.site-name { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif; font-size: 15px; letter-spacing: -.01em; }
+.site-header nav { gap: 18px; font-size: 13px; }
+.site-header .unified-nav { max-width: calc(100% - 180px); }
+.site-header .unified-nav a.active { color: var(--reader-accent); text-decoration: none; }
+.home-intro { max-width: 1200px; padding: 96px 24px 82px; border-bottom: 0; }
+.home-intro h1 { max-width: 760px; margin-bottom: 25px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif; font-size: clamp(46px, 6vw, 78px); font-weight: 700; letter-spacing: -.045em; line-height: 1.05; }
+.home-summary { max-width: 650px; color: var(--reader-muted); font-family: inherit; font-size: 19px; line-height: 1.75; }
+.kicker { color: var(--reader-muted); font-size: 11px; letter-spacing: .08em; }
+.text-action { color: var(--reader-accent); }
+.home-layout { max-width: 1200px; grid-template-columns: 220px minmax(0, 1fr); gap: 76px; padding: 36px 24px 110px; }
+.volume-index { border-top-color: var(--reader-rule); }
+.volume-index > a, .volume-index > span { border-top-color: var(--reader-rule); }
+.chapter-heading { border-bottom: 1px solid var(--reader-ink); }
+.chapter-heading h2, .lesson-title strong, .home-method h2, .secondary-tools h2 { font-family: inherit; letter-spacing: -.02em; }
+.lesson-list > li { border-bottom-color: var(--reader-rule); }
+.lesson-list .is-ready:hover { background: #f5f5f7; }
+.home-method { max-width: 1120px; border-radius: 22px; background: #f5f5f7; }
+.secondary-tools { max-width: 1120px; }
+.lesson-shell { max-width: 1120px; grid-template-columns: 190px minmax(0, 740px); gap: 72px; }
+.lesson-article > h1, .reading-column h1 { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif; font-weight: 700; letter-spacing: -.04em; }
+.lesson-deck, .home-summary { font-family: inherit; }
+.textbook-note, .opening-questions, .history-note, .example { border-radius: 16px; border-left-width: 0; background: #f5f5f7; }
+.definition { border: 0; border-radius: 16px; box-shadow: 0 1px 2px rgba(0,0,0,.05); }
+.formula-block { border-color: var(--reader-rule); }
+.lesson-article section { border-top-color: var(--reader-rule); }
+.lesson-next { border-top: 1px solid var(--reader-ink); }
+@media (max-width: 560px) {
+  .site-header { padding: 16px 18px; }
+  .site-header .unified-nav { max-width: calc(100% - 132px); }
+  .home-intro { padding: 68px 20px 58px; }
+  .home-intro h1 { font-size: 44px; }
+  .home-layout { padding: 28px 20px 76px; }
+}
+
+@media (max-width: 820px) {
+  .home-layout { grid-template-columns: 1fr; }
+  .chapter-heading { grid-template-columns: 1fr; }
+}
