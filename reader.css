@@ -48,6 +48,7 @@
 .is-ready .lesson-state { color: var(--reader-accent); font-weight: 700; }
 .home-method { max-width: 1064px; margin: 0 auto 90px; padding: 44px 48px; background: var(--reader-soft); }
 .home-method h2 { margin: 0 0 30px; font-family: Georgia, "Noto Serif CJK SC", serif; font-size: 30px; font-weight: 600; }
+.method-summary { max-width: 720px; margin: -16px 0 34px; color: var(--reader-muted); font-size: 14px; line-height: 1.8; }
 .home-method ol { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; list-style: none; margin: 0; padding: 0; }
 .home-method li { display: grid; grid-template-columns: 24px 1fr; gap: 10px; }
 .home-method li > span { color: var(--reader-accent); font: 600 11px/1.8 Georgia, serif; }
@@ -245,4 +246,10 @@
   .home-method { padding: 54px 20px; }
   .home-method ol { grid-template-columns: 1fr; gap: 26px; }
   .secondary-tools { margin-left: 20px; margin-right: 20px; }
+  .lesson-toc ol { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
+  .lesson-toc ol::-webkit-scrollbar { display: none; }
+  .lesson-toc li { flex: 0 0 auto; }
+  .lesson-article { width: 100%; max-width: 100%; }
+  .lesson-article > h1 { max-width: 100%; font-size: 36px; line-height: 1.18; overflow-wrap: anywhere; }
+  .lesson-article p, .lesson-article li, .lesson-meta { max-width: 100%; overflow-wrap: anywhere; word-break: break-word; }
 }
