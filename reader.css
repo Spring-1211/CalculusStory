@@ -209,6 +209,12 @@
 .secondary-tools nav a { text-decoration: none; }
 .secondary-tools nav a:hover { color: var(--reader-accent); }
 .site-footer { max-width: 1080px; }
+.course-charter { display: grid; grid-template-columns: minmax(0, 1fr) 1fr; gap: 84px; max-width: 1080px; margin: 0 auto 96px; padding: 72px 0; border-top: 1px solid var(--reader-rule); border-bottom: 1px solid var(--reader-rule); }
+.course-charter h2 { margin: 0 0 18px; font-family: inherit; font-size: 32px; letter-spacing: -.025em; }
+.course-charter p:not(.kicker) { max-width: 480px; margin: 0 0 24px; color: var(--reader-muted); font-size: 15px; line-height: 1.8; }
+.charter-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; align-content: start; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--reader-rule); }
+.charter-list li { padding: 13px 0; border-bottom: 1px solid var(--reader-rule); font-size: 14px; }
+.charter-list span { display: inline-block; width: 32px; color: var(--reader-faint); font-size: 11px; }
 
 .lesson-shell { max-width: 1040px; grid-template-columns: 184px minmax(0, 720px); gap: 80px; padding-top: 64px; }
 .lesson-toc { top: 84px; }
@@ -217,6 +223,11 @@
 .lesson-article h2 { font-family: inherit; font-size: 25px; letter-spacing: -.02em; }
 .lesson-article p, .lesson-article li { color: #333336; line-height: 1.88; }
 .textbook-note, .opening-questions, .history-note, .example { border-left: 0; border-radius: 8px; background: var(--reader-soft); }
+.lesson-process { display: flex; align-items: baseline; gap: 18px; margin: -12px 0 40px; padding-bottom: 18px; border-bottom: 1px solid var(--reader-rule); color: var(--reader-muted); font-size: 13px; }
+.lesson-process span { color: var(--reader-faint); font-size: 11px; font-weight: 700; letter-spacing: .06em; white-space: nowrap; }
+.lesson-process p { margin: 0; }
+.review-prompts { display: grid; grid-template-columns: 100px 1fr; gap: 8px 18px; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--reader-rule); color: var(--reader-muted); font-size: 13px; line-height: 1.7; }
+.review-prompts strong { color: var(--reader-ink); }
 .history-note { background: var(--reader-warm); }
 .definition { border: 1px solid var(--reader-rule); border-radius: 8px; box-shadow: none; }
 .definition-label { color: var(--reader-faint); }
@@ -246,10 +257,66 @@
   .home-method { padding: 54px 20px; }
   .home-method ol { grid-template-columns: 1fr; gap: 26px; }
   .secondary-tools { margin-left: 20px; margin-right: 20px; }
+  .course-charter { display: block; margin: 0 20px 72px; padding: 54px 0; }
+  .course-charter h2 { font-size: 29px; }
+  .charter-list { margin-top: 34px; }
+  .lesson-process { display: block; }
+  .lesson-process span { display: block; margin-bottom: 5px; }
+  .review-prompts { grid-template-columns: 1fr; gap: 2px; }
+  .review-prompts strong:not(:first-child) { margin-top: 12px; }
   .lesson-toc ol { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
   .lesson-toc ol::-webkit-scrollbar { display: none; }
   .lesson-toc li { flex: 0 0 auto; }
   .lesson-article { width: 100%; max-width: 100%; }
   .lesson-article > h1 { max-width: 100%; font-size: 36px; line-height: 1.18; overflow-wrap: anywhere; }
   .lesson-article p, .lesson-article li, .lesson-meta { max-width: 100%; overflow-wrap: anywhere; word-break: break-word; }
+}
+
+/* Teaching philosophy: a quiet long-form page, not a dashboard. */
+.philosophy-page { max-width: 980px; margin: 0 auto; padding: 104px 24px 120px; }
+.philosophy-hero { max-width: 800px; padding-bottom: 88px; }
+.philosophy-hero h1 {
+  max-width: 760px; margin: 17px 0 26px; font-family: inherit; font-size: clamp(50px, 7vw, 76px);
+  font-weight: 700; letter-spacing: -.045em; line-height: 1.06;
+}
+.philosophy-hero > p:last-child { max-width: 710px; margin: 0; color: var(--reader-muted); font-size: 19px; line-height: 1.75; }
+.philosophy-level { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 44px; padding: 58px 0; border-top: 1px solid var(--reader-rule); }
+.philosophy-level > span { padding-top: 3px; color: var(--reader-faint); font-size: 12px; }
+.philosophy-level h2, .principles h2, .dual-review h2 { margin: 9px 0 22px; font-family: inherit; font-size: 32px; letter-spacing: -.028em; line-height: 1.25; }
+.philosophy-level p, .principles p, .dual-review p { color: #3a3a3c; font-size: 16px; line-height: 1.9; }
+.philosophy-level p { max-width: 690px; }
+.principle-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 38px; margin-top: 28px; border-top: 1px solid var(--reader-rule); }
+.principle-grid p { margin: 0; padding: 19px 0; border-bottom: 1px solid var(--reader-rule); font-size: 14px; }
+.principle-grid strong { display: block; margin-bottom: 3px; color: var(--reader-ink); font-size: 15px; }
+.process-block { display: grid; grid-template-columns: 128px minmax(0, 1fr); gap: 20px; padding: 17px 0; border-top: 1px solid var(--reader-rule); }
+.process-block:last-child { border-bottom: 1px solid var(--reader-rule); }
+.process-block small { padding-top: 5px; color: var(--reader-faint); font-size: 11px; }
+.process-block p { margin: 0; color: var(--reader-ink); font-size: 14px; }
+.mainline { margin: 30px 0; padding: 22px 0; border-top: 1px solid var(--reader-rule); border-bottom: 1px solid var(--reader-rule); color: var(--reader-ink) !important; font-weight: 600; }
+.principles { display: grid; grid-template-columns: minmax(0, 1fr) 1fr; gap: 84px; padding: 76px 0; border-top: 1px solid var(--reader-ink); }
+.principles ol { counter-reset: charter; display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--reader-rule); }
+.principles li { counter-increment: charter; padding: 15px 0; border-bottom: 1px solid var(--reader-rule); font-size: 14px; }
+.principles li::before { content: counter(charter, decimal-leading-zero); display: inline-block; width: 34px; color: var(--reader-faint); font-size: 11px; }
+.dual-review { padding: 76px 0 0; border-top: 1px solid var(--reader-ink); }
+.dual-review > div { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 36px; }
+.dual-review article { padding-top: 18px; border-top: 1px solid var(--reader-rule); }
+.dual-review article span { color: var(--reader-ink); font-size: 15px; font-weight: 650; }
+.dual-review article p { margin: 9px 0 0; font-size: 14px; }
+.philosophy-page-body .site-footer a { color: var(--reader-muted); text-decoration: none; }
+.philosophy-page-body .site-footer a:hover { color: var(--reader-accent); }
+
+@media (max-width: 560px) {
+  .philosophy-page { padding: 72px 20px 90px; }
+  .philosophy-hero { padding-bottom: 58px; }
+  .philosophy-hero h1 { font-size: 43px; }
+  .philosophy-hero > p:last-child { font-size: 17px; }
+  .philosophy-level { grid-template-columns: 1fr; gap: 8px; padding: 38px 0; }
+  .philosophy-level h2, .principles h2, .dual-review h2 { font-size: 27px; }
+  .philosophy-level p, .principles p, .dual-review p { font-size: 15px; }
+  .principle-grid { grid-template-columns: 1fr; }
+  .process-block { grid-template-columns: 1fr; gap: 2px; }
+  .process-block small { padding-top: 0; }
+  .principles { grid-template-columns: 1fr; gap: 38px; padding: 54px 0; }
+  .dual-review { padding-top: 54px; }
+  .dual-review > div { grid-template-columns: 1fr; gap: 30px; }
 }
